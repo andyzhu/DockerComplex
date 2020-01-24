@@ -9,13 +9,13 @@ script:
     - docker run -e CI=true awesomens/react-test npm test 
 
 after_success:
-    - docker build -t awesomens/DockerComplex-client ./client
-    - docker build -t awesomens/DockerComplex-nginx ./nginx
-    - docker build -t awesomens/DockerComplex-server ./server
-    - docker build -t awesomens/DockerComplex-worker ./worker
+    - docker build -t awesomens/dockercomplex-client ./client
+    - docker build -t awesomens/dockercomplex-nginx ./nginx
+    - docker build -t awesomens/dockercomplex-server ./server
+    - docker build -t awesomens/dockercomplex-worker ./worker
     # push to docker hub
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push awesomens/DockerComplex-client
-    - docker push awesomens/DockerComplex-nginx
-    - docker push awesomens/DockerComplex-server
-    - docker push awesomens/DockerComplex-worker
+    - docker push awesomens/dockercomplex-client
+    - docker push awesomens/dockercomplex-nginx
+    - docker push awesomens/dockercomplex-server
+    - docker push awesomens/dockercomplex-worker

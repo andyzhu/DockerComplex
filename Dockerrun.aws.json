@@ -1,0 +1,43 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "dockercomplex-client",
+            "image": "awesomens/dockercomplex-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 256
+        },
+        {
+            "name": "dockercomplex-server",
+            "image": "awesomens/dockercomplex-server",
+            "hostname": "api",
+            "essential": false,
+            "memory":256
+        },
+        {
+            "name": "dockercomplex-worker",
+            "image": "awesomens/dockercomplex-worker",
+            "hostname": "worker",
+            "essential": false,
+            "memory":256
+        },
+        {
+            "name": "dockercomplex-nginx",
+            "image": "awesomens/dockercomplex-nginx",
+            "hostname": "web",
+            "essential": true,
+            "memory":256,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "dockercomplex-client",
+                "dockercomplex-server"
+            ]
+        }
+    ]
+}

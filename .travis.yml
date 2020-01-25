@@ -19,3 +19,20 @@ after_success:
     - docker push awesomens/dockercomplex-nginx
     - docker push awesomens/dockercomplex-server
     - docker push awesomens/dockercomplex-worker
+
+# deploy:
+#     edge: true
+#     provider: elasticbeanstalk
+#     region: "us-east-1"
+#     app: "docker-learn1"
+#     env: "DockerLearn1-env"
+#     bucket_name: "elasticbeanstalk-us-east-1-392289309102"
+#     bucket_path: "docker-learn1"
+#     on:
+#         branch: master
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key: 
+#         secure: "$AWS_SECRET_KEY"
+        
+language: generic
+    
